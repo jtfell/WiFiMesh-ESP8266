@@ -1,13 +1,22 @@
-/**
- *	WiFiMesh Library
- *
- *	Sets up a Mesh Node which acts as a router via other "Mesh Nodes", creating a Mesh Network. All information
- *	is passed in both directions, but it is up to the user what the data sent is and how it is dealt with.
- *
- *
- *	Created 1 June 2015
- *	By Julian Fell
- */
+/*
+  WiFiMesh.h - Mesh network node
+  Sets up a Mesh Node which acts as a router, creating a Mesh Network with other nodes. All information
+  is passed in both directions, but it is up to the user what the data sent is and how it is dealt with.
+ 
+  Copyright (c) 2015 Julian Fell. All rights reserved.
+ 
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
 
 #ifndef __WIFIMESH_H__
 #define __WIFIMESH_H__
@@ -28,13 +37,6 @@ private:
 	WiFiServer  _server;
 	WiFiClient  _client;
 
-	/**
-	 * Connect to the AP at ssid, send them a message then disconnect.
-	 *
-	 * @message The string to send to a node.
-	 * @ssid The name of the AP the other node has set up.
-	 * 
-	 */
 	void connectToNode(String target_ssid, String message);
 	bool exchangeInfo(String message, WiFiClient curr_client);
 	bool waitForClient(WiFiClient curr_client, int max_wait);
@@ -65,7 +67,7 @@ public:
 	void attemptScan(String message);
 
 	/**
-	 * If a client is connected, accept their request and call the hander function.
+	 * If any clients are connected, accept their requests and call the hander function for each one.
 	 */
 	void acceptRequest();
 };

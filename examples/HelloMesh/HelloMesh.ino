@@ -12,11 +12,11 @@ WiFiMesh mesh_node = WiFiMesh(ESP.getChipId(), manageRequest);
  */
 String manageRequest(String request)
 {
-        /* Print out received message */
+	/* Print out received message */
 	Serial.print("received: ");
 	Serial.println(request);
 
-        /* return a string to send back */
+	/* return a string to send back */
 	return String("Hello world response.");
 }
 
